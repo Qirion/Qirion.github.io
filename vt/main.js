@@ -11,6 +11,7 @@ function MeasureConnectionSpeed() {
     var oProgress = document.getElementById("progress");
     var startTime, endTime;
     var download = new Image();
+    
     download.onload = function () {
         endTime = (new Date()).getTime();
         showResults();
@@ -26,7 +27,7 @@ function MeasureConnectionSpeed() {
 
     function showResults() {
         var duration = (endTime - startTime) / 1000;
-        var bitsLoaded = downloadSize * 8;
+        var bitsLoaded = downloadSize;
         var speedBps = (bitsLoaded / duration).toFixed(2);
         var speedKbps = (speedBps / 1024).toFixed(2);
         var speedMbps = (speedKbps / 1024).toFixed(2);
