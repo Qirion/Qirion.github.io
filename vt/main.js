@@ -1,4 +1,4 @@
-var imageAddr = "http://www.kenrockwell.com/contax/images/g2/examples/31120037-5mb.jpg"; 
+var imageAddr = "1-58MB.jpg"; 
 var downloadSize = 4995374; //bytes
 
 window.onload = function() {
