@@ -1,5 +1,5 @@
 var imageAddr = "1-58MB.jpg"; 
-var downloadSize = 4995374; //bytes
+var downloadSize = 1661698; //bytes
 
 window.onload = function() {
     var oProgress = document.getElementById("progress");
