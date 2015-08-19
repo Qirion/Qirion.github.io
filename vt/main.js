@@ -1,17 +1,23 @@
-var imageAddr = "1-58MB.jpg"; 
+var imageAddr = "1-58MB.jpg";
 var downloadSize = 1661698; //bytes
 
-window.onload = function() {
+window.onload = function () {
     var oProgress = document.getElementById("progress");
     oProgress.innerHTML = "Carregando imagem, isso pode demorar um pouco...";
     window.setTimeout(MeasureConnectionSpeed, 1);
+
+    var ctx = document.getElementById("canvas").getContext("2d");
+    window.myLine = new Chart(ctx).Line(lineChartData, {
+        responsive: true
+    });
+
 };
 
 function MeasureConnectionSpeed() {
     var oProgress = document.getElementById("progress");
     var startTime, endTime;
     var download = new Image();
-    
+
     download.onload = function () {
         endTime = (new Date()).getTime();
         showResults();
@@ -31,9 +37,9 @@ function MeasureConnectionSpeed() {
         var speedBps = (bitsLoaded / duration).toFixed(2);
         var speedKbps = (speedBps / 1024).toFixed(2);
         var speedMbps = (speedKbps / 1024).toFixed(2);
-        oProgress.innerHTML = "Sua velocidade: <br />" + 
-           speedBps + " bps<br />"   + 
-           speedKbps + " kbps<br />" + 
-           speedMbps + " Mbps<br />";
+        oProgress.innerHTML = "Sua velocidade: <br />" +
+            speedBps + " bps<br />" +
+            speedKbps + " kbps<br />" +
+            speedMbps + " Mbps<br />";
     }
 }
