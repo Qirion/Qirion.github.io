@@ -1,5 +1,5 @@
-var imageAddr = "http://speedtest.openx.com.br/speedtest/random3000x3000.jpg?x=1440070711211&y=2";
-var downloadSize = 17816816; //bytes
+var imageAddr = "http://sp1.g8.net.br/speedtest/random3500x3500.jpg";//?x=1440073094894&y=1
+var downloadSize = 24262167; //bytes
 
 window.onload = function () {
     var oProgress = document.getElementById("progress");
@@ -33,6 +33,7 @@ function MeasureConnectionSpeed() {
 
     function showResults() {
         var duration = ((endTime - startTime) - 10) / 1000;
+        console.log(duration * 1000)
         var bitsLoaded = downloadSize * 8;
         var speedBps = (bitsLoaded / duration).toFixed(2);
         var speedKbps = (speedBps / 1024).toFixed(2);
