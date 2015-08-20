@@ -32,7 +32,7 @@ function MeasureConnectionSpeed() {
     download.src = imageAddr + cacheBuster;
 
     function showResults() {
-        var duration = ((endTime - startTime) - 10) / 1000;
+        var duration = ((endTime - startTime)) / 1000;
         console.log(duration * 1000)
         var bitsLoaded = downloadSize * 8;
         var speedBps = (bitsLoaded / duration).toFixed(2);
