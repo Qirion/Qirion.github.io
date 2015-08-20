@@ -5,12 +5,6 @@ window.onload = function () {
     var oProgress = document.getElementById("progress");
     oProgress.innerHTML = "Carregando imagem, isso pode demorar um pouco...";
     window.setTimeout(MeasureConnectionSpeed, 1);
-
-    var ctx = document.getElementById("canvas").getContext("2d");
-    window.myLine = new Chart(ctx).Line(lineChartData, {
-        responsive: true
-    });
-
 };
 
 function MeasureConnectionSpeed() {
