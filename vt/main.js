@@ -1,5 +1,5 @@
-var imageAddr = "1-58MB.jpg";
-var downloadSize = 1661698; //bytes
+var imageAddr = "http://speedtest.openx.com.br/speedtest/random3000x3000.jpg?x=1440070711211&y=2";
+var downloadSize = 17816816; //bytes
 
 window.onload = function () {
     var oProgress = document.getElementById("progress");
