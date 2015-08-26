@@ -1,9 +1,10 @@
 var g1;
+var refr = true;
 var g1 = new JustGage({
 	id: "g1",
 	value: 0,
 	min: 0,
-	max: 1000,
+	max: 100,
 	relativeGaugeSize: true,
 	donut: true
 });
@@ -11,7 +12,9 @@ var g1 = new JustGage({
 
 
 $('#results').on("me", function () {
-	g1.refresh(getRandomInt(0, 100));
+	if(refr){
+		g1.refresh(getRandomInt(0, 100));
+	}
 });
 
 // Since we don't set a beacon_url, we'll just subscribe to the before_beacon function
@@ -36,6 +39,7 @@ BOOMR.subscribe('before_beacon', function(o) {
 	if(o.t_done) { html += "<span>A pagina demorou " + o.t_done + " ms para carregar</span>"; }
 	if(o.bw) { html += "<span>Sua conexão é de " + parseInt((o.bw*8/1024)/1024) + "Mbps (Erro de &#x00b1;" + parseInt(o.bw_err*100/o.bw) + "%)</span>"; 
 		g1.refresh(parseInt((o.bw*8/1024)/1024));
+		refr = false;
 	}
 	if(o.lat) { html += "<span>Seu ping: " + parseInt(o.lat) + "ms (Erro de &#x00b1;" + o.lat_err + "ms)</span>"; }
 
