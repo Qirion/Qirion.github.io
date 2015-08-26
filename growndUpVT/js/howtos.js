@@ -1,10 +1,19 @@
-var g1;
 var refr = true;
+var g1;
 var g1 = new JustGage({
 	id: "g1",
 	value: 0,
 	min: 0,
 	max: 100,
+	relativeGaugeSize: true,
+	donut: true
+});
+var g2;
+var g2 = new JustGage({
+	id: "g2",
+	value: 0,
+	min: 0,
+	max: 200,
 	relativeGaugeSize: true,
 	donut: true
 });
@@ -14,6 +23,7 @@ var g1 = new JustGage({
 $('#results').on("me", function () {
 	if(refr){
 		g1.refresh(getRandomInt(0, 100));
+		g2.refresh(getRandomInt(0, 100));
 	}
 });
 
@@ -41,7 +51,10 @@ BOOMR.subscribe('before_beacon', function(o) {
 		g1.refresh(parseInt((o.bw*8/1024)/1024));
 		refr = false;
 	}
-	if(o.lat) { html += "<span>Seu ping: " + parseInt(o.lat) + "ms (Erro de &#x00b1;" + o.lat_err + "ms)</span>"; }
+	if(o.lat) { html += "<span>Seu ping: " + parseInt(o.lat) + "ms (Erro de &#x00b1;" + o.lat_err + "ms)</span>"; 
+		g2.refresh(parseInt(o.lat));
+		refr = false;
+	}
 
 	var r = document.getElementById('results');
 	r.innerHTML = html;
