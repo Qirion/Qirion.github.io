@@ -36,9 +36,9 @@ function customValue(val) {
 
 $('#results').on("me", function () {
 	if(refr){
-		difCounter +=11;
+		difCounter +=5;
 		g1.refresh(difCounter);
-		g2.refresh(difCounter*2);
+		g2.refresh(difCounter*2.5);
 	}
 });
 
