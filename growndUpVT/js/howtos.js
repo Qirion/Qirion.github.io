@@ -18,7 +18,7 @@ var g2 = new JustGage({
 	id: "g2",
 	value: 0,
 	min: 0,
-	max: 250,
+	max: 400,
 	title: "Ping",
 	label: "ms",
 	relativeGaugeSize: true,
@@ -52,7 +52,7 @@ $('#results').on("me", function () {
 		difCounter -=5;
 		//g1.refresh(difCounter*1024);
 		//g2.refresh(difCounter*2.8);
-		g3.refresh(difCounter*5.8);
+		g3.refresh(difCounter*2);
 	}
 });
 
