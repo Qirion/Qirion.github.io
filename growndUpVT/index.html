@@ -19,9 +19,19 @@
             margin: auto;
             width: 50%;
         }
-        
-    
-    
+        .gauge {
+            display: block;
+            float: left;
+        }
+        #g1 {
+            width: 20%;
+        }
+        #g2 {
+            width: 60%;
+        }
+        #g3 {
+            width: 20%;
+        }
     </style>
 </head>
 
@@ -31,6 +41,7 @@
     <p id="results">
         Fazendo um monte de calculos complicados de mais para explicar.
     </p>
+    <div id="g1" class="gauge"></div>
 
 
     
@@ -49,8 +60,21 @@
         });
     </script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-    <script src="./js/anim.js" type="text/javascript"></script>
 
+    <script src="./js/raphael-2.1.4.min.js"></script>
+    <script src="./js/justgage-1.1.0.min.js"></script>
+    <script>
+        var g1;
+        var g1 = new JustGage({
+            id: "g1",
+            value: 0,
+            min: 0,
+            max: 1000,
+            relativeGaugeSize: true,
+            donut: true
+        });
+    </script>
+    <script src="./js/anim.js" type="text/javascript"></script>
 
 </body>
 
