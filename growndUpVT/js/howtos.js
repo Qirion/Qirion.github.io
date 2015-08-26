@@ -5,10 +5,11 @@ var g1 = new JustGage({
 	id: "g1",
 	value: 0,
 	min: 0,
-	max: 100,
+	max: 10240,
 	title: "Velocidade",
 	label: "kBps",
 	relativeGaugeSize: true,
+	formatNumber: true,
 	donut: true
 });
 var g2;
@@ -37,8 +38,8 @@ function customValue(val) {
 $('#results').on("me", function () {
 	if(refr){
 		difCounter +=5;
-		g1.refresh(difCounter);
-		g2.refresh(difCounter*2.5);
+		g1.refresh(difCounter*1024);
+		g2.refresh(difCounter*2.8);
 	}
 });
 
@@ -63,7 +64,7 @@ BOOMR.subscribe('before_beacon', function(o) {
 
 	if(o.t_done) { html += "<span>A pagina demorou " + o.t_done + " ms para carregar</span>"; }
 	if(o.bw) { html += "<span>Sua conexão é de " + parseInt((o.bw*8/1024)/1024) + "Mbps (Erro de &#x00b1;" + parseInt(o.bw_err*100/o.bw) + "%)</span>"; 
-		g1.refresh(parseInt((o.bw*8/1024)));
+		g1.refresh((o.bw*8/1024));
 		refr = false;
 	}
 	if(o.lat) { html += "<span>Seu ping: " + parseInt(o.lat) + "ms (Erro de &#x00b1;" + o.lat_err + "ms)</span>"; 
