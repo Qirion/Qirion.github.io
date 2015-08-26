@@ -16,7 +16,7 @@ var g2 = new JustGage({
 	id: "g2",
 	value: 0,
 	min: 0,
-	max: 200,
+	max: 250,
 	title: "Ping",
 	label: "ms",
 	relativeGaugeSize: true,
@@ -36,9 +36,9 @@ function customValue(val) {
 
 $('#results').on("me", function () {
 	if(refr){
-		difCounter +=1;
-		g1.refresh(getRandomInt(0, 100));
-		g2.refresh(getRandomInt(0, 100));
+		difCounter +=11;
+		g1.refresh(difCounter);
+		g2.refresh(difCounter*2);
 	}
 });
 
