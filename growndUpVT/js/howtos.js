@@ -18,7 +18,9 @@ BOOMR.subscribe('before_beacon', function(o) {
 	}
 
 	if(o.t_done) { html += "<span>A pagina demorou " + o.t_done + " ms para carregar</span>"; }
-	if(o.bw) { html += "<span>Sua conexão é de " + parseInt((o.bw*8/1024)/1024) + "Mbps (Erro de &#x00b1;" + parseInt(o.bw_err*100/o.bw) + "%)</span>"; }
+	if(o.bw) { html += "<span>Sua conexão é de " + parseInt((o.bw*8/1024)/1024) + "Mbps (Erro de &#x00b1;" + parseInt(o.bw_err*100/o.bw) + "%)</span>"; 
+		g1.value =  parseInt((o.bw*8/1024)/1024);
+	}
 	if(o.lat) { html += "<span>Seu ping: " + parseInt(o.lat) + "ms (Erro de &#x00b1;" + o.lat_err + "ms)</span>"; }
 
 	var r = document.getElementById('results');
