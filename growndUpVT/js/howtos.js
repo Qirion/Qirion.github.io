@@ -5,11 +5,12 @@ var g1 = new JustGage({
 	id: "g1",
 	value: 0,
 	min: 0,
-	max: 10240,
+	max: 102400,
 	title: "Velocidade",
 	label: "kBps",
 	relativeGaugeSize: true,
 	formatNumber: true,
+	gaugeWidthScale: 0.6,
 	donut: true
 });
 var g2;
