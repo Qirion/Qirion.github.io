@@ -1,3 +1,19 @@
+var g1;
+var g1 = new JustGage({
+	id: "g1",
+	value: 0,
+	min: 0,
+	max: 1000,
+	relativeGaugeSize: true,
+	donut: true
+});
+
+
+
+$('#results').on("me", function () {
+	g1.value = getRandomInt(0, 100);
+});
+
 // Since we don't set a beacon_url, we'll just subscribe to the before_beacon function
 // and print the results into the browser itself.
 BOOMR.subscribe('before_beacon', function(o) {
