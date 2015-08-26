@@ -1,4 +1,5 @@
 var refr = true;
+var difCounter = 0;
 var g1;
 var g1 = new JustGage({
 	id: "g1",
@@ -35,6 +36,7 @@ function customValue(val) {
 
 $('#results').on("me", function () {
 	if(refr){
+		difCounter +=1;
 		g1.refresh(getRandomInt(0, 100));
 		g2.refresh(getRandomInt(0, 100));
 	}
@@ -67,6 +69,7 @@ BOOMR.subscribe('before_beacon', function(o) {
 	if(o.lat) { html += "<span>Seu ping: " + parseInt(o.lat) + "ms (Erro de &#x00b1;" + o.lat_err + "ms)</span>"; 
 		g2.refresh(parseInt(o.lat));
 		refr = false;
+		console.log(difCounter);
 	}
 
 	var r = document.getElementById('results');
