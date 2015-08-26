@@ -49,10 +49,10 @@ function customValue(val) {
 
 $('#results').on("me", function () {
 	if(refr){
-		difCounter -=0.17;
+		//difCounter -=0.17;
 		//g1.refresh(difCounter*1024);
 		//g2.refresh(difCounter*2.8);
-		g3.refresh(difCounter*2);
+		g3.refresh(getRandomInt(0, 100));
 	}
 });
 
