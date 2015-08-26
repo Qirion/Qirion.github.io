@@ -5,6 +5,8 @@ var g1 = new JustGage({
 	value: 0,
 	min: 0,
 	max: 100,
+	title: "Velocidade",
+	label: "Mbps",
 	relativeGaugeSize: true,
 	donut: true
 });
@@ -14,10 +16,21 @@ var g2 = new JustGage({
 	value: 0,
 	min: 0,
 	max: 200,
+	title: "Ping",
+	label: "ms",
 	relativeGaugeSize: true,
 	donut: true
 });
 
+function customValue(val) {
+	if (val < 50) {
+		return 'low';
+        } else if (val > 50) {
+        	return 'high';
+        } else if (val === 50) {
+        	return 'ideal';
+        }
+}
 
 
 $('#results').on("me", function () {
