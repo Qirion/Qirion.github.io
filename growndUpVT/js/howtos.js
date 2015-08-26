@@ -5,9 +5,9 @@ var g1 = new JustGage({
 	id: "g1",
 	value: 0,
 	min: 0,
-	max: 102400,
+	max: 100,
 	title: "Velocidade",
-	label: "kBps",
+	label: "MBps",
 	relativeGaugeSize: true,
 	formatNumber: true,
 	gaugeWidthScale: 0.6,
@@ -77,7 +77,7 @@ BOOMR.subscribe('before_beacon', function(o) {
 
 	if(o.t_done) { html += "<span>A pagina demorou " + o.t_done + " ms para carregar</span>"; }
 	if(o.bw) { html += "<span>Sua conexão é de " + parseInt((o.bw*8/1024)/1024) + "Mbps (Erro de &#x00b1;" + parseInt(o.bw_err*100/o.bw) + "%)</span>"; 
-		g1.refresh((o.bw*8/1024));
+		g1.refresh((o.bw*8/1024)/1024);
 		g3.refresh(o.bw_err*100/o.bw);
 		refr = false;
 	}
