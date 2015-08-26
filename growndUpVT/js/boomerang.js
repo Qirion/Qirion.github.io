@@ -57,7 +57,8 @@ impl = {
 		"page_ready": [],
 		"page_unload": [],
 		"visibility_changed": [],
-		"before_beacon": []
+		"before_beacon": [],
+        "updated": []
 	},
 
 	vars: {},
@@ -824,6 +825,15 @@ var images=[
 images.end = images.length;
 images.start = 0;
 
+    
+// evento ME, usado para controle de animacao asincrona
+var element = document.getElementById('results');
+var iterEvento = document.createEvent("HTMLEvents");
+iterEvento.initEvent("me", true, true);
+var disparar = function(){
+    element.dispatchEvent(iterEvento);
+}
+
 // abuse arrays to do the latency test simply because it avoids a bunch of
 // branches in the rest of the code.
 // I'm sorry Douglas
@@ -1021,6 +1031,7 @@ var impl = {
 		BOOMR.debug('amean: ' + amean + ', median: ' + median, "bw");
 		BOOMR.debug('corrected amean: ' + amean_corrected + ', '
 				+ 'median: ' + median_corrected, "bw");
+        
 
 		return {
 			mean: amean,
@@ -1047,11 +1058,11 @@ var impl = {
 		    timer=0, tstart=0,
 		    img = new Image(),
 		    that=this;
-
 		img.onload=function() {
 			img.onload=img.onerror=null;
 			img=null;
 			clearTimeout(timer);
+            disparar();
 			if(callback) {
 				callback.call(that, i, tstart, run, true);
 			}
@@ -1204,6 +1215,7 @@ var impl = {
 		else {
 			this.results.push({r:[]});
 			this.load_img(images.start, this.runs_left--, this.img_loaded);
+
 		}
 	},
 
